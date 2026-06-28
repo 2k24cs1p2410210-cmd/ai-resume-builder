@@ -1,0 +1,33 @@
+# Dependency directories
+node_modules/
+ai-resume-builder/node_modules/
+server/node_modules/
+
+# Environment files (containing secrets)
+.env
+.env.local
+.env.*.local
+ai-resume-builder/.env
+server/.env
+
+# Build outputs
+dist/
+ai-resume-builder/dist/
+server/dist/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Editor/System files
+.vscode/
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
