@@ -19,7 +19,6 @@ const getAuth = (req) => {
 };
 import { supabase } from './db.js';
 import multer from 'multer';
-import { PDFParse } from 'pdf-parse';
 import mammoth from 'mammoth';
 
 // Load environment variables
