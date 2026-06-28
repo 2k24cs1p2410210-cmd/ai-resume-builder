@@ -1370,7 +1370,11 @@ app.post('/api/resumes/:id/duplicate', requireAuth(), async (req, res) => {
 
 
 
-// Start proxy server
-app.listen(PORT, () => {
-  console.log(`Gemini API Proxy is active on http://localhost:${PORT}`);
-});
+// Start proxy server (only locally, not on Vercel serverless)
+if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Gemini API Proxy is active on http://localhost:${PORT}`);
+  });
+}
+
+export default app;

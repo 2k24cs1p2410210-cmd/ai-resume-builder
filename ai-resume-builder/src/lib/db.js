@@ -1,4 +1,5 @@
-const BASE_URL = 'http://localhost:5000/api/resumes';
+const BACKEND_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+const BASE_URL = `${BACKEND_URL}/api/resumes`;
 
 // Helper to construct request headers including Clerk JWT Authorization token
 function getHeaders(token) {

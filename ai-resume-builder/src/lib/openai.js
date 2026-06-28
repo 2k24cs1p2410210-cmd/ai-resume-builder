@@ -1,4 +1,5 @@
 // OpenAI Integration Helper with local fallback and backend proxy routing
+const BACKEND_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
 function getMockSummaries(jobTitle, customRequirement = '') {
   const title = jobTitle || 'Professional';
@@ -39,7 +40,7 @@ function getMockBullets(type, title) {
 // Generate summaries using the Express backend server proxy
 export async function generateSummaryWithAi(jobTitle, skills = [], experience = [], customRequirement = '') {
   try {
-    const response = await fetch('http://localhost:5000/api/generate-summary', {
+    const response = await fetch(`${BACKEND_URL}/api/generate-summary`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -84,7 +85,7 @@ export async function generateSummaryWithAi(jobTitle, skills = [], experience = 
 // Generate bullets using the Express backend server proxy
 export async function generateBulletsWithAi(type, title, descriptionContext = '', customRequirement = '') {
   try {
-    const response = await fetch('http://localhost:5000/api/generate-bullets', {
+    const response = await fetch(`${BACKEND_URL}/api/generate-bullets`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -122,7 +123,7 @@ export async function generateBulletsWithAi(type, title, descriptionContext = ''
 // Generate a detailed project description using the Express backend server proxy
 export async function generateProjectDescriptionWithAi(projectName, techStack = [], userNotes = '', role = null) {
   try {
-    const response = await fetch('http://localhost:5000/api/generate-project-description', {
+    const response = await fetch(`${BACKEND_URL}/api/generate-project-description`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -160,7 +161,7 @@ export async function generateProjectDescriptionWithAi(projectName, techStack = 
 // Analyze resume details using the Express backend server proxy
 export async function analyzeResumeWithAi(resumeData, jobDescription = null) {
   try {
-    const response = await fetch('http://localhost:5000/api/analyze-resume', {
+    const response = await fetch(`${BACKEND_URL}/api/analyze-resume`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
